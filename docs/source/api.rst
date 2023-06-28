@@ -5,4 +5,8 @@ API
    :toctree: generated
 
    lumache
+
+.. autosummary::
+   :toctree: generated
+
    test_traj
