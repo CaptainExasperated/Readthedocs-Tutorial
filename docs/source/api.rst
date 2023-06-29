@@ -1,5 +1,12 @@
 MY API
-===
+========
+mesohops.dynamics.hops\_storage traj class
+------------------------------------------
+
+.. automodule:: test_traj
+   :members:
+   :show-inheritance:
+   :exclude-members:   
 
 The “shape” module
 ------------------
@@ -7,4 +14,3 @@ The “shape” module
    :toctree: generated
 
    lumache
-   test_traj
