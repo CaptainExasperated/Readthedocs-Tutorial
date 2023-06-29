@@ -1,6 +1,9 @@
 API
 ===
 
+lulu
+-----
+
 .. autosummary::
    :toctree: generated
 
