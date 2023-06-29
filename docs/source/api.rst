@@ -4,7 +4,8 @@ API
 lulu
 -----
 
-.. autosummary::
-   :toctree: generated
+.. automodule:: lumache
+   :members:
+   :show-inheritance:
+   :exclude-members:
 
-   lumache
