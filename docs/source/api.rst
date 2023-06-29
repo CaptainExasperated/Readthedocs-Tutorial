@@ -1,17 +1,12 @@
-ME APE
-========  
-
-The “shape” moduleeee?
-----------------------
-.. automodule:: lumache
-   :members:
-   :show-inheritance:
-   :exclude-members:
-
-Trajjjj
---------
+API
+===
 
 .. autosummary::
    :toctree: generated
 
    lumache
+
+.. autosummary::
+   :toctree: generated
+
+   test_traj
