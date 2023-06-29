@@ -22,4 +22,4 @@ Contents
 .. toctree::
 
    usage
-   HELP TIS SHOULD BE API
+   api
