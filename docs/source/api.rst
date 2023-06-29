@@ -7,3 +7,11 @@ The “shape” module
    :toctree: generated
 
    lumache
+
+Trajjjj
+-------------------------------------
+
+.. autosummary::
+   :toctree: generated
+
+   test_traj
