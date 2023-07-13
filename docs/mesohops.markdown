@@ -8,7 +8,7 @@ permalink: /Mesohops/
   type="text/javascript">
 </script>
 
-This is the some basic mesohops text that will describe things test test test
+This is the some basic mesohops text that will describe things test test
 
 Here is a table:
 
