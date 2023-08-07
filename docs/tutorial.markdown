@@ -12,7 +12,7 @@ In this first example, we will run a small ensemble of HOPS trajectories. Each t
 
 $$\hat{H} = \hat{H}_{\textrm{S}} + \sum_{n,q_n} \Lambda_{q_n} \hat{L}_n (\hat{a}^\dagger_{q_n} + \hat{a}_{q_n}) + \sum_{n,q_n} \hslash \omega_{q_n} (\hat{a}^\dagger_{q_n} \hat{a}_{q_n} + 1/2)$$
 
-Where the first term ($\hat{H}_S$) is the system Hamiltonian, the second term represents the linear coupling between the system and each environmental degree of freedom, and the final term represents the thermal environment as a set of independent baths comprised of infinite harmonic oscillators.
+Where the first term ($$\hat{H}_S$$) is the system Hamiltonian, the second term represents the linear coupling between the system and each environmental degree of freedom, and the final term represents the thermal environment as a set of independent baths comprised of infinite harmonic oscillators.
 
 For demonstration purposes we will run an ensemble of 100 trajectories to simulate the population dynamics of a molecular dimer. We will...
 1. Build the trajectory by assigning parameters
@@ -48,11 +48,11 @@ ntraj = 100
 
 First, we define the number of pigments in the linear chain we are simulating (nsite) and the system Hamiltonian matrix (hs). 
 
-In MesoHOPS each pigment in the aggregate has 2 adiabatic electronic states, a ground state $\vert g \rangle$ and an excited state $\vert e \rangle$. The basis for our system Hamiltonian is comprised of the diabatic electronic basis of local states.  The system Hamiltonian is given by,
+In MesoHOPS each pigment in the aggregate has 2 adiabatic electronic states, a ground state $$\vert g \rangle$$ and an excited state $$\vert e \rangle$$. The basis for our system Hamiltonian is comprised of the diabatic electronic basis of local states.  The system Hamiltonian is given by,
 
 $$\hat{H}_{\textrm{S}} = \sum_n \vert n \rangle E_n \langle n \vert + \sum{n \neq m} \vert n \rangle V_{n,m} \langle m \vert$$
 
-where, $\vert n \rangle$ are the excited states of the pigments in the electronic system, $E_n$ are the vertical excitation energies or the pigment energies, and $V_{n,m}$ are the electronic couplings between pigments. The vertical excitation energies are the energy difference between the ground and first excited state of the pigment and are the diagonal elements of the system Hamiltonian. The electronic couplings are the off diagonal values.
+where, $$\vert n \rangle$$ are the excited states of the pigments in the electronic system, $$E_n$$ are the vertical excitation energies or the pigment energies, and $$V_{n,m}$$ are the electronic couplings between pigments. The vertical excitation energies are the energy difference between the ground and first excited state of the pigment and are the diagonal elements of the system Hamiltonian. The electronic couplings are the off diagonal values.
 
 $$\hat{H}_{\textrm{S}} = \begin{bmatrix} E_1 & V_{12}\\ V_{21} & E_2 \end{bmatrix} $$
 
@@ -74,17 +74,17 @@ Next, we describe the bath. The bath Hamiltonian describes the thermal environme
 
 $$\hat{H}_{\textrm{B}} = \sum_{n,q_n} \hslash \omega_{q_n} (\hat{a}^\dagger_{q_n} \hat{a}_{q_n} + 1/2)$$
 
-where $\omega_{q_n}$ is the frequency of a harmonic oscillator and $\hat{a}^\dagger_{q_n}$ and $\hat{a}^\dagger_{q_n}$ are the corresponding creation and annihilation operators.  Each independent bath is indexed by $n$ and contains a spectrum of harmonic modes indexed by $q_n$.
+where $$\omega_{q_n}$$ is the frequency of a harmonic oscillator and $$\hat{a}^\dagger_{q_n}$$ and $$\hat{a}^\dagger_{q_n}$$ are the corresponding creation and annihilation operators.  Each independent bath is indexed by $$n$$ and contains a spectrum of harmonic modes indexed by $$q_n$$.
 
 The interaction Hamiltonian describes the coupling between the electronic degrees of freedom and the vibrational degrees of freedom. The interaction component is written as
 
 $$\hat{H}_{\textrm{int}} = \sum_{n,q_n} \Lambda_{q_n} \hat{L}_n \hat{q}_n $$
 
-Where $\Lambda_{q_n}$ is a bi-linear coupling term and $\hat{L}_n$ is an operator ($\hat{L}_n = \ket{n}\bra{n}$) that couples the $n^{th}$ pigment to its independent environment described by bath modes ${q_n}$. We parametrize the bath and interaction Hamiltonians via a time correlation function and a set of L-operators.
+Where $$\Lambda_{q_n}$$ is a bi-linear coupling term and $$\hat{L}_n$$ is an operator ($$\hat{L}_n = \ket{n}\bra{n}$$) that couples the $$n^{th}$$ pigment to its independent environment described by bath modes $${q_n}$$. We parametrize the bath and interaction Hamiltonians via a time correlation function and a set of L-operators.
 
-The time correlation function of bath $n$, $C_n(t)$, is given in this example by an unshifted overdamped Drude-Lorentz model with a reorganization energy <sup>[1](#myfootnote1)</sup> of 60 wavenumbers (e_lambda), reorganization timescale of 60 wavenumbers (gamma), and temperature  of 300 Kelvin (temp). The time correlation function governs the correlation of bath degrees of freedom, as well as the correlation of the noise trajectory.
+The time correlation function of bath $$n$$, $$C_n(t)$$, is given in this example by an unshifted overdamped Drude-Lorentz model with a reorganization energy <sup>[1](#myfootnote1)</sup> of 60 wavenumbers (e_lambda), reorganization timescale of 60 wavenumbers (gamma), and temperature  of 300 Kelvin (temp). The time correlation function governs the correlation of bath degrees of freedom, as well as the correlation of the noise trajectory.
 
-In the HOPS formalism, a time correlation function must be represented as a sum of exponential modes: $C_n(t) = \sum_{j_n}g_{j_n}e^{-w_{j_n}t/\hbar}$. We use the built-in bcf_convert_sdl_to_exp function to find the single-exponential form of the unshifted overdamped Drude-Lorentz time correlation function:
+In the HOPS formalism, a time correlation function must be represented as a sum of exponential modes: $$C_n(t) = \sum_{j_n}g_{j_n}e^{-w_{j_n}t/\hbar}$$. We use the built-in bcf_convert_sdl_to_exp function to find the single-exponential form of the unshifted overdamped Drude-Lorentz time correlation function:
 
 ```
 e_lambda = 60.0  
@@ -158,9 +158,10 @@ Lastly, hierarchy_param determines the triangular hierarchy truncation depth (MA
 ```
 eom_param = {"EQUATION_OF_MOTION": "NORMALIZED NONLINEAR"}
 integration_param = {"INTEGRATOR": "RUNGE_KUTTA",
-                        "EARLY_ADAPTIVE_INTEGRATOR": "INCH_WORM",
-                        "EARLY_INTEGRATOR_STEPS": 5,
-                        "INCHWORM_CAP": 5}  
+                         "EARLY_ADAPTIVE_INTEGRATOR": "INCH_WORM",
+                         "EARLY_INTEGRATOR_STEPS": 5,
+                         "INCHWORM_CAP": 5,
+                         "STATIC_BASIS" : None}   
 hierarchy_param = {"MAXHIER": 4}
 ```
 
@@ -197,22 +198,19 @@ hops.propagate(t_max, t_step)
 ```
 
 <h2>Analyze the outcome</h2>
-We will save each physical wave function (hops.storage[‘psi_traj’]) in the wave function list. We can also optionally save each wave function as a .npy file using the function np.save().
+We will save each physical wave function (hops.storage[‘psi_traj’]) in the wave function list.
 
 ```
 psi_traj = hops.storage['psi_traj']
 wf_list.append(psi_traj)
-np.save("trajectory" + str(trajectory_index), psi_traj)
 ```
 
-To plot the dynamics, we will make a plot of the mean population (absolute-square of the wave function) of the two sites over time. Again, we can optionally save the population as a .npy file.
+To plot the dynamics, we will make a plot of the mean population (absolute-square of the wave function) of the two sites over time.
 
 ```
 mean_pop = np.mean(np.abs(np.array(wf_list))**2, axis=0)
 pop1 = mean_pop[:,0]
 pop2 = mean_pop[:,1]
-
-#np.save("mean_pop_depth_{}_datatype_{}_traj_{}_eq".format("nparray", str(ntraj), "linear"), mean_pop)
 
 t_axis = np.arange(0, t_max+t_step, t_step)
 plt.xlabel("Time (fs)")
@@ -287,7 +285,8 @@ for trajectory_index in range(ntraj):
     integration_param = {"INTEGRATOR": "RUNGE_KUTTA",
                          "EARLY_ADAPTIVE_INTEGRATOR": "INCH_WORM",
                          "EARLY_INTEGRATOR_STEPS": 5,
-                         "INCHWORM_CAP": 5}  
+                         "INCHWORM_CAP": 5,
+                         "STATIC_BASIS" : None}   
     hierarchy_param = {"MAXHIER": 4}
 
     hops = HOPS(
@@ -311,14 +310,10 @@ for trajectory_index in range(ntraj):
 
     psi_traj = hops.storage['psi_traj']
     wf_list.append(psi_traj)
-    np.save("trajectory" + str(trajectory_index), psi_traj)
-
 
 mean_pop = np.mean(np.abs(np.array(wf_list))**2, axis=0)
 pop1 = mean_pop[:,0]
 pop2 = mean_pop[:,1]
-
-#np.save("mean_pop_depth_{}_datatype_{}_traj_{}_eq".format("nparray", str(ntraj), "linear"), mean_pop)
 
 t_axis = np.arange(0, t_max+t_step, t_step)
 plt.xlabel("Time (fs)")
