@@ -3,6 +3,7 @@ layout: page
 title: Quickstart
 permalink: /Quickstart/
 ---
+[comment]: <> (This allows latex formatting in the markdown files)
 <script
   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
   type="text/javascript">
