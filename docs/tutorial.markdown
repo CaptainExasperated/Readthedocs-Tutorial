@@ -81,7 +81,7 @@ The interaction Hamiltonian describes the coupling between the electronic degree
 
 $$\hat{H}_{\textrm{int}} = \sum_{n,q_n} \Lambda_{q_n} \hat{L}_n \hat{q}_n $$
 
-Where $$\Lambda_{q_n}$$ is a bi-linear coupling term and $$\hat{L}_n$$ is an operator ($$\hat{L}_n = \ket{n}\bra{n}$$) that couples the $$n^{th}$$ pigment to its independent environment described by bath modes $${q_n}$$. We parametrize the bath and interaction Hamiltonians via a time correlation function and a set of L-operators.
+Where $$\Lambda_{q_n}$$ is a bi-linear coupling term and $$\hat{L}_n$$ is an operator ($$\hat{L}_n = \langle{n}\rangle{n}$$) that couples the $$n^{th}$$ pigment to its independent environment described by bath modes $${q_n}$$. We parametrize the bath and interaction Hamiltonians via a time correlation function and a set of L-operators.
 
 The time correlation function of bath $$n$$, $$C_n(t)$$, is given in this example by an unshifted overdamped Drude-Lorentz model with a reorganization energy <sup>[1](#myfootnote1)</sup> of 60 wavenumbers (e_lambda), reorganization timescale of 60 wavenumbers (gamma), and temperature  of 300 Kelvin (temp). The time correlation function governs the correlation of bath degrees of freedom, as well as the correlation of the noise trajectory.
 
@@ -149,20 +149,15 @@ Our calculation parameters consist of 3 small dictionaries describing the equati
 Equations of motion supported in this code include normalized nonlinear, linear, nonlinear, and nonlinear absorption. In this example, we are using a normalized nonlinear equation of motion as it allows for adaptivity in non-absorption calculations.
 
 The integrator dictionary takes:
-- the type of integrator (INTEGRATOR). We currently only support a fourth-order Runge-Kutta integrator. 
-- the type of early adaptive integrator (EARLY_ADAPTIVE_INTEGRATOR). We currently support inchworm, static, and hierarchy inchworm. 
-- the number of times the adaptive basis is recalculated to account for the rapid growth at early time before time-evolving the dynamics (INCHWORM_CAP)
-- the number of timesteps defining early time (EARLY_INTEGRATOR_STEPS) 
+- the type of integrator (INTEGRATOR). We currently only support a fourth-order Runge-Kutta integrator.  
+
+Other integrator parameters will be explored in the Adaptivity tutorial.
 
 Lastly, hierarchy_param determines the triangular hierarchy truncation depth (MAXHIER) and also allows you to add static filters, which determines the structure of allowable hierarchy elements.
 
 ```
 eom_param = {"EQUATION_OF_MOTION": "NORMALIZED NONLINEAR"}
-integration_param = {"INTEGRATOR": "RUNGE_KUTTA",
-                         "EARLY_ADAPTIVE_INTEGRATOR": "INCH_WORM",
-                         "EARLY_INTEGRATOR_STEPS": 5,
-                         "INCHWORM_CAP": 5,
-                         "STATIC_BASIS" : None}   
+integration_param = {"INTEGRATOR": "RUNGE_KUTTA"}   
 hierarchy_param = {"MAXHIER": 4}
 ```
 
@@ -283,11 +278,7 @@ for trajectory_index in range(ntraj):
     } 
 
     eom_param = {"EQUATION_OF_MOTION": "NORMALIZED NONLINEAR"}
-    integration_param = {"INTEGRATOR": "RUNGE_KUTTA",
-                         "EARLY_ADAPTIVE_INTEGRATOR": "INCH_WORM",
-                         "EARLY_INTEGRATOR_STEPS": 5,
-                         "INCHWORM_CAP": 5,
-                         "STATIC_BASIS" : None}   
+    integration_param = {"INTEGRATOR": "RUNGE_KUTTA"}   
     hierarchy_param = {"MAXHIER": 4}
 
     hops = HOPS(
