@@ -83,7 +83,7 @@ $$\hat{H}_{\textrm{int}} = \sum_{n,q_n} \Lambda_{q_n} \hat{L}_n \hat{q}_n $$
 
 Where $$\Lambda_{q_n}$$ is a bi-linear coupling term and $$\hat{L}_n$$ is an operator ($$\hat{L}_n = \langle{n}\rangle{n}$$) that couples the $$n^{th}$$ pigment to its independent environment described by bath modes $${q_n}$$. We parametrize the bath and interaction Hamiltonians via a time correlation function and a set of L-operators.
 
-The time correlation function of bath $$n$$, $$C_n(t)$$, is given in this example by an unshifted overdamped Drude-Lorentz model with a reorganization energy <sup>[1](#myfootnote1)</sup> of 60 wavenumbers (e_lambda), reorganization timescale of 60 wavenumbers (gamma), and temperature  of 300 Kelvin (temp). The time correlation function governs the correlation of bath degrees of freedom, as well as the correlation of the noise trajectory.
+The time correlation function of bath $$n$$, $$C_n(t)$$, is given in this example by an unshifted overdamped Drude-Lorentz model with a reorganization energy of 60 wavenumbers (e_lambda), reorganization timescale <sup>[1](#myfootnote1)</sup> of 60 wavenumbers (gamma), and temperature  of 300 Kelvin (temp). The time correlation function governs the correlation of bath degrees of freedom, as well as the correlation of the noise trajectory.
 
 In the HOPS formalism, a time correlation function must be represented as a sum of exponential modes: $$C_n(t) = \sum_{j_n}g_{j_n}e^{-w_{j_n}t/\hbar}$$. We use the built-in bcf_convert_sdl_to_exp function to find the single-exponential form of the unshifted overdamped Drude-Lorentz time correlation function:
 
@@ -315,4 +315,4 @@ plt.plot(t_axis,pop2)
 plt.show()
 ```
 
-<a name="myfootnote1">1</a>: Also known as AAA, BBB, CCC
+<a name="myfootnote1">1</a>: Also known as polaron formation timescale.
