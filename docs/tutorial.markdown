@@ -23,11 +23,11 @@ For demonstration purposes we will run an ensemble of 100 trajectories to simula
 <h2>Creating the trajectory by assigning parameters</h2>
 In order to create a trajectory, we will need to fill 5 dictionaries.
 
-1. System_param: stores basic information about the system, bath, and system-bath coupling
-2. Noise_param: specifies the generation of the noise
-3. Eom_param: defines the equation of motion for time-evolving the hops trajectory
-4. Integration_param: specifies characteristics of the integrator that time-evolves the hops trajectory via the equation of motion
-5. Hierarchy_param: stores basic information about the hierarchy of auxiliary wave functions
+- System_param: stores basic information about the system, bath, and system-bath coupling
+- Noise_param: specifies the generation of the noise
+- Eom_param: defines the equation of motion for time-evolving the hops trajectory
+- Integration_param: specifies characteristics of the integrator that time-evolves the hops trajectory via the equation of motion
+- Hierarchy_param: stores basic information about the hierarchy of auxiliary wave functions
 
 There is also an optional dictionary where one can specify which data will be saved for analysis after code execution called storage_param.
 
