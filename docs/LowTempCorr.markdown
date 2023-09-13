@@ -84,11 +84,11 @@ sys_param = {
 
 ## What is the Effective Integration of the Noise?
 
-MesoHOPS works by using the HOPS equation of motion works to find the derivative of each auxiliary wave function and then integrating with a fourth-order Runge-Kutta integrator. If a single time step of integration propagates the dynamics from time $t$ to time $t + \Delta t$, the fourth-order Runge-Kutta integrator samples the noise at times $t$, $t + \frac{1}{2}\Delta t$, and $t + \Delta t$.
+MesoHOPS works by using the HOPS equation of motion works to find the derivative of each auxiliary wave function and then integrating with a fourth-order Runge-Kutta integrator. If a single time step of integration propagates the dynamics from time $$t$$ to time $$t + \Delta t$$, the fourth-order Runge-Kutta integrator samples the noise at times $$t$$, $$t + \frac{1}{2}\Delta t$$, and $$t + \Delta t$$.
 
   
 
-In many calculations - especially when the bath correlation function has ultrafast modes - the noise has dynamics on a faster timescale than anything else in the equation of motion. Therefore, one of the limiting factors in the accuracy of a simulation is whether half the time step of integration $\Delta t/2$ is fine-grained enough to capture short-lived fluctuations in the noise that we refer to as ultrafast noise dynamics.
+In many calculations - especially when the bath correlation function has ultrafast modes - the noise has dynamics on a faster timescale than anything else in the equation of motion. Therefore, one of the limiting factors in the accuracy of a simulation is whether half the time step of integration $$\Delta t/2$$ is fine-grained enough to capture short-lived fluctuations in the noise that we refer to as ultrafast noise dynamics.
 
   
 

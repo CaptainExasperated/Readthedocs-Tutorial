@@ -63,15 +63,15 @@ There are numerous ways to measure the convergence of a calculation, but we will
 Mean_pop = np.mean([np.abs(ensemble_traj[i])**2 for i in range(len(ensemble_traj))], axis=0)
 ```
 
-This gives population vector at all times $t$, $\vec{P}(t)$, comprised of the populations of the states defining the basis of the system Hamiltonian. We can find the population error between the test and reference ensemble as the norm of the difference between population vectors $$E(t) = \|\vec{P}_{ref}(t)-\vec{P}_{test}(t)\|_1$$ where $\vec{P}_{ref}(t)$ and $\vec{P}_{test}(t)$ are the population vectors at time $t$ for the reference and test ensembles, respectively.
+This gives population vector at all times $$t$$, $$\vec{P}(t)$$, comprised of the populations of the states defining the basis of the system Hamiltonian. We can find the population error between the test and reference ensemble as the norm of the difference between population vectors $$E(t) = \|\vec{P}_{ref}(t)-\vec{P}_{test}(t)\|_1$$ where $$\vec{P}_{ref}(t)$$ and $$\vec{P}_{test}(t)$$ are the population vectors at time $$t$$ for the reference and test ensembles, respectively.
 
   
 
-The user may determine how to characterize error - and which levels of error are acceptable for considering a test ensemble converged - according to their own needs. Generally, defining a threshold value for either the maximum or mean of $E(t)$ is a good measure of convergence: we have previously used mean error thresholds of 0.02 and 0.03 to define convergence.
+The user may determine how to characterize error - and which levels of error are acceptable for considering a test ensemble converged - according to their own needs. Generally, defining a threshold value for either the maximum or mean of $$E(t)$$ is a good measure of convergence: we have previously used mean error thresholds of 0.02 and 0.03 to define convergence.
 
   
-
-One alternative to population error is error in the expectation value of an observable. Instead of using the population vector $\vec{P}(t)$, it is simple to compare the expectation value of $\hat{O}$ over time via taking the ensemble average of the expectation value $\langle \hat{O}\rangle_t = \langle\psi^{\vec{0}}_t|\hat{O}|\psi^{\vec{0}}_t\rangle$. Comparing the expectation value of the observable between a reference and test ensemble is simple enough from there.
+  
+One alternative to population error is error in the expectation value of an observable. Instead of using the population vector $$\vec{P}(t)$$, it is simple to compare the expectation value of $$\hat{O}$$ over time via taking the ensemble average of the expectation value $$\langle \hat{O}\rangle_t = \langle\psi^{\vec{0}}_t|\hat{O}|\psi^{\vec{0}}_t\rangle$$. Comparing the expectation value of the observable between a reference and test ensemble is simple enough from there.
 
 Finally, rather than using a numerical convergence threshold that depends on some calculated error measure, the user may simply determine convergence qualitatively by plotting either the populations of some or all states or some observable and deciding by eye whether or not the data appears converged.
 
@@ -94,11 +94,11 @@ Bootstrapping, however, is time-consuming and involved. While it provides in-dep
 
 ## Notes
 
-The noise time step, $\tau$, must be strategically set before beginning a convergence scan: all tested integration time steps must be an even integer multiple of $\tau$ due to the way the Runge-Kutta integrator works.
+The noise time step, $$\tau$$, must be strategically set before beginning a convergence scan: all tested integration time steps must be an even integer multiple of $$\tau$$ due to the way the Runge-Kutta integrator works.
 
   
 
-Setting the hierarchy depth too high can lead to issues with time step, as a large hierarchy depth introduces dynamics on very fast timescales into the equation of motion. As a general rule of thumb, ensure that your smallest tested integration time step is less than or equal to $\frac{\hbar}{2\gamma_{max}k_{max}}$, where $\gamma_{max}$ is the fastest exponential mode in your correlation function.
+Setting the hierarchy depth too high can lead to issues with time step, as a large hierarchy depth introduces dynamics on very fast timescales into the equation of motion. As a general rule of thumb, ensure that your smallest tested integration time step is less than or equal to $$\frac{\hbar}{2\gamma_{max}k_{max}}$$, where $$\gamma_{max}$$ is the fastest exponential mode in your correlation function.
 
   
 

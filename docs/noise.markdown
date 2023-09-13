@@ -8,26 +8,26 @@ permalink: /Noise/
   type="text/javascript">
 </script>
 
-The HopsTrajectory object creates and manages the correlated stochastic process known as noise, creating “noise trajectories” $z_{n,t}$ for each of its independent baths $n$. These trajectories are made up of noise samples at timepoints $0, \tau, 2\tau...T_{len}$ on the noise time axis with $Nt$ time point.
+The HopsTrajectory object creates and manages the correlated stochastic process known as noise, creating “noise trajectories” $$z_{n,t}$$ for each of its independent baths $$n$$. These trajectories are made up of noise samples at timepoints $$0, \tau, 2\tau...T_{len}$$ on the noise time axis with $$Nt$$ time point.
 
 <h2>Noise Initialization</h2>
 
 To create this noise, HopsTrajectory takes in following user-specified input parameters in the noise_param input dictionary:
 - “seed”: defines noise trajectories for all modes
 - “model”: describes noise generation
-- “tlen” ($T_{len}$): the end time
-- “tau” ($\tau$): the time step
+- “tlen” ($$T_{len}$$): the end time
+- “tau” ($$\tau$$): the time step
 
 Other optional parameters include:
 - “rand_model”: method of generating random complex numbers
 - “Store_raw_noise”: determines if the uncorrelated "raw" complex Gaussian random noise trajectory should be stored in Hops.noise[“Z_UNCORRELATED”]
 
-Note that tlen must be longer than the calculation is run for (the amount by which it is longer should correspond to the reorganization timescale (a good rule of thumb is 1000 fs. The number of sampled time points in each bath’s noise trajectory, $N_t$, will be $\frac{T_{len}}{\tau}$.
+Note that tlen must be longer than the calculation is run for (the amount by which it is longer should correspond to the reorganization timescale (a good rule of thumb is 1000 fs. The number of sampled time points in each bath’s noise trajectory, $$N_t$$, will be $$\frac{T_{len}}{\tau}$$.
 
 The noise also uses input parameters from the sys_param input dictionary:
 - PARAM_NOISE1: list of these parameters for each correlation function mode
-- L_NOISE1: matches each correlation function mode with the site-projection operator $\hat{L}_n$ of its associated bath
-- ALPHA_NOISE1: gives the functional form of the correlation function modes, taking in parameters $g_{j_n}$ and $w_{j_n}$ to define exponential mode $C_{j_n} = g_{j_n}e^{-w_{j_n}t/\hslash}$.
+- L_NOISE1: matches each correlation function mode with the site-projection operator $$\hat{L}_n$$ of its associated bath
+- ALPHA_NOISE1: gives the functional form of the correlation function modes, taking in parameters $$g_{j_n}$$ and $$w_{j_n}$$ to define exponential mode $$C_{j_n} = g_{j_n}e^{-w_{j_n}t/\hslash}$$.
 
 While the user may enter any correlation function as a sum of exponentials, several helper functions are defined in "bath_corr_functions.py" to produce exact exponential decompositions of common correlation functions. Options include an overdamped Drude-Lorentz spectral density (with optional Matsubara modes), an underdamped Drude-Lorentz spectral density (without Matsubara modes), and a Drude-Lorentz-like overdamped spectral density (with optional Matsubara modes).
 
@@ -69,7 +69,7 @@ noise_param = {
 <h3>MODEL=PRE-CALCULATED</h3>
 The noise trajectory is directly determined by the “SEED” parameter of the noise_param input dictionary. 
 
-- The seed may be a two-dimensional iterable consisting of "N_L2" rows and Nt columns of complex numbers, where each row represents the noise trajectory of a given bath, $z_{n,t}$.
+- The seed may be a two-dimensional iterable consisting of "N_L2" rows and Nt columns of complex numbers, where each row represents the noise trajectory of a given bath, $$z_{n,t}$$.
 
 Example: 
 ```
@@ -81,7 +81,7 @@ noise_param = {
 }
 ```
 
-- The seed may be a string that is a valid address for a ".npy" file. HopsNoise then loads the file at the specified address, which must be a two-dimensional iterable with "N_L2" rows and Nt columns of complex numbers, such that each row is the noise trajectory of a given bath, $z_{n,t}$.
+- The seed may be a string that is a valid address for a ".npy" file. HopsNoise then loads the file at the specified address, which must be a two-dimensional iterable with "N_L2" rows and Nt columns of complex numbers, such that each row is the noise trajectory of a given bath, $$z_{n,t}$$.
 
 Example:
 ```
@@ -95,7 +95,7 @@ noise_param = {
 
 <h3>MODEL=FFT_FILTER</h3>
 
-The HopsTrajectory object generates a sample of the stochastic noise on its own, specifically a stochastic Gaussian white noise of an appropriate length for each independent bath, $Y_{n,t}$ where the ‘uncorrelated noise’ is given by $4Nt − 4$ uniform real Gaussian random variables, used to produce $2Nt − 2$ uniform complex Gaussian random variables. 
+The HopsTrajectory object generates a sample of the stochastic noise on its own, specifically a stochastic Gaussian white noise of an appropriate length for each independent bath, $$Y_{n,t}$$ where the ‘uncorrelated noise’ is given by $$4Nt − 4$$ uniform real Gaussian random variables, used to produce $$2Nt − 2$$ uniform complex Gaussian random variables. 
 
 - The seed may be an integer index. This is used to seed a np.random.RandomState object which then produces the uncorrelated noise.
 
@@ -109,7 +109,7 @@ noise_param = {
 }
 ```
 
-- The seed may be a two-dimensional iterable consisting of "N_L2" rows and $2Nt − 2$ columns of complex numbers, where each row represents the complex uncorrelated noise of a given bath, $Y_{n,t}$.
+- The seed may be a two-dimensional iterable consisting of "N_L2" rows and $$2Nt − 2$$ columns of complex numbers, where each row represents the complex uncorrelated noise of a given bath, $$Y_{n,t}$$.
 
 Example:
 ```
@@ -121,7 +121,7 @@ noise_param = {
 }
 ```
 
-- The seed may be a string that is a valid address for a ".npy" file. HopsNoise then loads the file at the specified address, which must be a two-dimensional iterable with "N_L2" rows and $2Nt − 2$ columns of complex numbers, such that each row is the uncorrelated noise trajectory of a given bath, $Y_{n,t}$.
+- The seed may be a string that is a valid address for a ".npy" file. HopsNoise then loads the file at the specified address, which must be a two-dimensional iterable with "N_L2" rows and $$2Nt − 2$$ columns of complex numbers, such that each row is the uncorrelated noise trajectory of a given bath, $$Y_{n,t}$$.
 
 Example:
 ```
