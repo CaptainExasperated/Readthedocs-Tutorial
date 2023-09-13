@@ -8,11 +8,11 @@ permalink: /Storage/
   type="text/javascript">
 </script>
 
-The HopsTrajectory object saves information about the trajectory after each time step. At each time point, it takes in input parameters consisting of the full wave function ($\psi_{t}$), the auxiliary basis, the state basis, the current time point $t$, and the set of noise memory drift terms $\xi_{n,t}$, then saves a user-selected set of output information for later analysis.
+The HopsTrajectory object saves information about the trajectory after each time step. At each time point, it takes in input parameters consisting of the full wave function ($$\psi_{t}$$), the auxiliary basis, the state basis, the current time point $$t$$, and the set of noise memory drift terms $$\xi_{n,t}$$, then saves a user-selected set of output information for later analysis.
 
 <h2>Saving and Accessing Information</h2>
 
-By default, the HopsTrajectory object stores the system wave function $\vert \psi^{0} \rangle$ and time $t$ when the calculation is not adaptive. When the calculation is adaptive (see [Adaptivity](https://duckduckgo.com) for more details), the HopsTrajectory object also stores the outputs of list of indexing vectors of each member of $A_t$, the list of the integer indices of each state in $S_t$,  number of states in $S_t$, and number of auxiliary wave functions in $A$.
+By default, the HopsTrajectory object stores the system wave function $$\vert \psi^{0} \rangle$$ and time $$t$$ when the calculation is not adaptive. When the calculation is adaptive (see [Adaptivity](https://duckduckgo.com) for more details), the HopsTrajectory object also stores the outputs of list of indexing vectors of each member of $$A_t$$, the list of the integer indices of each state in $$S_t$$,  number of states in $$S_t$$, and number of auxiliary wave functions in $$A$$.
 
 The information is stored in a list dictionary which can be accessed through “hopsobj.storage” (where hopsobj is the name of the HopsTrajectory created). The information can be accessed by referencing the information’s key name.
 
@@ -90,11 +90,11 @@ t = hops.storage[“time”]
 ```
 
 When creating functions, we need to specify five parameters:
-- "phi_new": the full wavefunction ($\psi_{t}$).
-- "aux_list": the list of AuxilaryVector objects in the hierarchy ($A_{t}$).
-- "state_list": the list of states in the state basis ($\S_{t}$).
+- "phi_new": the full wavefunction ($$\psi_{t}$$).
+- "aux_list": the list of AuxilaryVector objects in the hierarchy ($$A_{t}$$).
+- "state_list": the list of states in the state basis ($$\S_{t}$$).
 - "t_new": the time t.
-- "z_mem_new": the set of noise memory drift terms $\xi_{n,t}$ for each independent bath $n$.
+- "z_mem_new": the set of noise memory drift terms $$\xi_{n,t}$$ for each independent bath $$n$$.
 
 Saving functions are constructed in the following format: 
 ```
