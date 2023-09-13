@@ -37,7 +37,7 @@ Ideally, we want to find a calculation that is "converged" - that is, tightening
 
 ## Convergence Scans
 
-A convergence scan is an ensemble of HOPS trajectories (usually of 1,000 trajectories) calculated at different convergence parameters but with the same noise trajectories (since Matsubara modes affect the noise, this means the same uncorrelated noise trajectories - see the noise tutorial [link this]). This allows us to complete the "same" simulation with tighter or looser convergence parameters and meaningfully measure error introduced by insufficiently tight convergence parameters.
+A convergence scan is an ensemble of HOPS trajectories (usually of 1,000 trajectories) calculated at different convergence parameters but with the same noise trajectories (since Matsubara modes affect the noise, this means the same uncorrelated noise trajectories - see the [noise tutorial](https://duckduckgo.com)). This allows us to complete the "same" simulation with tighter or looser convergence parameters and meaningfully measure error introduced by insufficiently tight convergence parameters.
 
   
 
@@ -70,8 +70,8 @@ This gives population vector at all times $$t$$, $$\vec{P}(t)$$, comprised of th
 The user may determine how to characterize error - and which levels of error are acceptable for considering a test ensemble converged - according to their own needs. Generally, defining a threshold value for either the maximum or mean of $$E(t)$$ is a good measure of convergence: we have previously used mean error thresholds of 0.02 and 0.03 to define convergence.
 
   
-  
-One alternative to population error is error in the expectation value of an observable. Instead of using the population vector $$\vec{P}(t)$$, it is simple to compare the expectation value of $$\hat{O}$$ over time via taking the ensemble average of the expectation value $$\langle \hat{O}\rangle_t = \langle\psi^{\vec{0}}_t|\hat{O}|\psi^{\vec{0}}_t\rangle$$. Comparing the expectation value of the observable between a reference and test ensemble is simple enough from there.
+
+One alternative to population error is error in the expectation value of an observable. Instead of using the population vector $$\vec{P}(t)$$, it is simple to compare the expectation value of $$\hat{O}$$ over time via taking the ensemble average of the expectation value $$\langle \hat{O}\rangle_t = \langle\psi^{\vec{0}}_t\vert\hat{O}\vert\psi^{\vec{0}}_t\rangle$$. Comparing the expectation value of the observable between a reference and test ensemble is simple enough from there.
 
 Finally, rather than using a numerical convergence threshold that depends on some calculated error measure, the user may simply determine convergence qualitatively by plotting either the populations of some or all states or some observable and deciding by eye whether or not the data appears converged.
 
