@@ -5,8 +5,8 @@ permalink: /tutorials/
 ---
 
 Here are a list of our tutorials:
-- [Adaptivity](/Readthedocs-Tutorial/adaptivity/)
-- [Convergence](/Readthedocs-Tutorial/convergence/)
-- [Noise](/Readthedocs-Tutorial/noise/)
-- [Storage](/Readthedocs-Tutorial/storage/)
+- [Adaptivity](/Readthedocs-Tutorial/Adaptivity/)
+- [Convergence](/Readthedocs-Tutorial/Convergence/)
+- [Noise](/Readthedocs-Tutorial/Noise/)
+- [Storage](/Readthedocs-Tutorial/Storage/)
 - [Low Temperature Correction](/Readthedocs-Tutorial/LowTempCorr/)
