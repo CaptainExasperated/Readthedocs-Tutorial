@@ -49,15 +49,15 @@ ntraj = 100
 
 First, we define the number of pigments in the linear chain we are simulating (nsite) and the system Hamiltonian matrix (hs). 
 
-In MesoHOPS each pigment in the aggregate has 2 adiabatic electronic states, a ground state $$\vert g \rangle$$ and an excited state $$\vert e \rangle$$. The basis for our system Hamiltonian is comprised of the diabatic electronic basis of local states.  The system Hamiltonian is given by,
+In this example, each pigment in the aggregate has 2 adiabatic electronic states, a ground state $$\vert g \rangle$$ and an excited state $$\vert e \rangle$$. The basis for our system Hamiltonian is comprised of the diabatic electronic basis of local states.  The system Hamiltonian is given by,
 
 $$\hat{H}_{\textrm{S}} = \sum_n \vert n \rangle E_n \langle n \vert + \sum{n \neq m} \vert n \rangle V_{n,m} \langle m \vert$$
 
-where, $$\vert n \rangle$$ are the excited states of the pigments in the electronic system, $$E_n$$ are the vertical excitation energies or the pigment energies, and $$V_{n,m}$$ are the electronic couplings between pigments. The vertical excitation energies are the energy difference between the ground and first excited state of the pigment and are the diagonal elements of the system Hamiltonian. The electronic couplings are the off diagonal values.
+where, $$\vert n \rangle$$ are the excited states of the pigments in the electronic system, $$E_n$$ are the vertical excitation energies or the pigment energies, and $$V_{n,m}$$ are the electronic couplings between pigments. The vertical excitation energies are the energy difference between the ground and first excited state of the pigment and are the diagonal elements of the system Hamiltonian. The electronic couplings are the off-diagonal values, such that the system Hamiltonian should be in this form given a 2-site system that consists of 2 coupled molecules.
 
 $$\hat{H}_{\textrm{S}} = \begin{bmatrix} E_1 & V_{12}\\ V_{21} & E_2 \end{bmatrix} $$
 
-In our example, we have a 2-site system that consists of 2 coupled molecules. The first and second molecules have vertical excitation energies of 100 and 0 wavenumbers, respectively. The coupling between the two sites (Hermitian-symmetric off-diagonals) is 50 wavenumbers. The system hamiltonian should take the following array form:
+In our example, the first and second molecules have vertical excitation energies of 100 and 0 wavenumbers, respectively. The coupling between the two sites (Hermitian-symmetric off-diagonals) is 50 wavenumbers. The system hamiltonian should then take the following array form:
 
 $$\hat{H}_{\textrm{S}} = \begin{bmatrix} 100 & 50\\ 50 & 0 \end{bmatrix} $$
 
@@ -75,13 +75,13 @@ Next, we describe the bath. The bath Hamiltonian describes the thermal environme
 
 $$\hat{H}_{\textrm{B}} = \sum_{n,q_n} \hslash \omega_{q_n} (\hat{a}^\dagger_{q_n} \hat{a}_{q_n} + 1/2)$$
 
-where $$\omega_{q_n}$$ is the frequency of a harmonic oscillator and $$\hat{a}^\dagger_{q_n}$$ and $$\hat{a}^\dagger_{q_n}$$ are the corresponding creation and annihilation operators.  Each independent bath is indexed by $$n$$ and contains a spectrum of harmonic modes indexed by $$q_n$$.
+where $$\omega_{q_n}$$ is the frequency of a harmonic oscillator and $$\hat{a}^\dagger_{q_n}$$ and $$\hat{a}_{q_n}$$ are the corresponding creation and annihilation operators.  Each independent bath is indexed by $$n$$ and contains a spectrum of harmonic modes indexed by $$q_n$$.
 
 The interaction Hamiltonian describes the coupling between the electronic degrees of freedom and the vibrational degrees of freedom. The interaction component is written as
 
 $$\hat{H}_{\textrm{int}} = \sum_{n,q_n} \Lambda_{q_n} \hat{L}_n \hat{q}_n $$
 
-Where $$\Lambda_{q_n}$$ is a bi-linear coupling term and $$\hat{L}_n$$ is an operator ($$\hat{L}_n = \vert n\rangle{} \langle{} n \vert$$) that couples the $$n^{th}$$ pigment to its independent environment described by bath modes $${q_n}$$. We parametrize the bath and interaction Hamiltonians via a time correlation function and a set of L-operators.
+Where $$\Lambda_{q_n}$$ is a bi-linear coupling term and $$\hat{L}_n$$ is an operator (in this case $$\hat{L}_n = \vert n\rangle{} \langle{} n \vert$$) that couples the $$n^{th}$$ pigment to its independent environment described by bath modes $${q_n}$$. We parametrize the bath and interaction Hamiltonians via a time correlation function and a set of L-operators.
 
 The time correlation function of bath $$n$$, $$C_n(t)$$, is given in this example by an unshifted overdamped Drude-Lorentz model with a reorganization energy of 60 wavenumbers (e_lambda), reorganization timescale<sup>[1](#myfootnote1)</sup> of 60 wavenumbers (gamma), and temperature  of 300 Kelvin (temp). The time correlation function governs the correlation of bath degrees of freedom, as well as the correlation of the noise trajectory.
 
