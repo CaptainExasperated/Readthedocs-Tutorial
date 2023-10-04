@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Convergence Testing HOPS Calculations
-permalink: /ConvergenceTesting/
+permalink: /Convergence/
 ---
 [comment]: <> (This allows latex formatting in the markdown files)
 <script

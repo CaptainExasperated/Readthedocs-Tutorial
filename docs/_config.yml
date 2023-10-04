@@ -18,12 +18,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title is it still cool?
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+title: MesoHOPS
+#email: your-email@example.com
 #baseurl: "/myblog" # the subpath of your site, e.g. /blog
 url: "acheng2.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -31,6 +27,10 @@ url: "acheng2.github.io" # the base hostname & protocol for your site, e.g. http
 theme: minima
 plugins:
   - jekyll-feed
+
+header_pages:
+  - quickstart.markdown
+  - tutorials.markdown
 
 # Exclude from processing.
 # The following items will not be processed, by default.
