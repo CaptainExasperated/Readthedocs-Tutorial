@@ -31,29 +31,35 @@ the number of times the adaptive basis is recalculated to account for the rapid 
 
 Example of the resulting integration_params:
 
+```
 integration_param = {"INTEGRATOR": "RUNGE_KUTTA",
                          "EARLY_ADAPTIVE_INTEGRATOR": "INCH_WORM",
                          "EARLY_INTEGRATOR_STEPS": 5,
                          "INCHWORM_CAP" : 5,
  “STATIC_BASIS”: None} 
+```
 
 Note that we can also specify the static basis when using inchworm integration but this will result in the static basis being the basis at the initial time.
 
 If we choose to define our static basis, we need to also specify:
-The static basis during early time (STATIC_BASIS)
+the static basis during early time (STATIC_BASIS)
 
 Example of the resulting integration_params:
+```
 integration_param = {"INTEGRATOR": "RUNGE_KUTTA",
                          "EARLY_ADAPTIVE_INTEGRATOR": "STATIC",
                          "EARLY_INTEGRATOR_STEPS": 5,
                          "STATIC_BASIS" : [state_list, aux_list]} 
+```
 
 The make_adaptive(delta_h, delta_s, update_step) method must be called before the initialization of the trajectory and after creating the HOPs trajectory to implement a moving, adaptive basis guaranteed to satisfy derivative error bound delta. Adaptivity parameters "delta_h" ($$\delta_A$$) and "delta_s" ($$\delta_S$$) control the sensitivity of the adaptive basis construction and "update_step" is the parameter that determines how often the adaptive HOPS basis will be updated.
 
 Example of the make_adaptive function:
+```
 delta_s = 0.001
 delta_h = 0.001
 update_step = 10
 hops.make_adaptive(delta_h, delta_s, update_step)
+```
 
 INSERT GRAPH

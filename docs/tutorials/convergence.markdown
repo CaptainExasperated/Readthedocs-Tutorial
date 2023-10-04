@@ -37,7 +37,7 @@ Ideally, we want to find a calculation that is "converged" - that is, tightening
 
 ## Convergence Scans
 
-A convergence scan is an ensemble of HOPS trajectories (usually of 1,000 trajectories) calculated at different convergence parameters but with the same noise trajectories (since Matsubara modes affect the noise, this means the same uncorrelated noise trajectories - see the [noise tutorial](https://duckduckgo.com)). This allows us to complete the "same" simulation with tighter or looser convergence parameters and meaningfully measure error introduced by insufficiently tight convergence parameters.
+A convergence scan is an ensemble of HOPS trajectories (usually of 1,000 trajectories) calculated at different convergence parameters but with the same noise trajectories (since Matsubara modes affect the noise, this means the same uncorrelated noise trajectories - see the [noise tutorial](/Readthedocs-Tutorial/Noise/)). This allows us to complete the "same" simulation with tighter or looser convergence parameters and meaningfully measure error introduced by insufficiently tight convergence parameters.
 
   
 

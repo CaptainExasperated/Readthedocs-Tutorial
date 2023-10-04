@@ -12,7 +12,7 @@ The HopsTrajectory object saves information about the trajectory after each time
 
 <h2>Saving and Accessing Information</h2>
 
-By default, the HopsTrajectory object stores the system wave function $$\vert \psi^{0} \rangle$$ and time $$t$$ when the calculation is not adaptive. When the calculation is adaptive (see [Adaptivity](https://duckduckgo.com) for more details), the HopsTrajectory object also stores the outputs of list of indexing vectors of each member of $$A_t$$, the list of the integer indices of each state in $$S_t$$,  number of states in $$S_t$$, and number of auxiliary wave functions in $$A$$.
+By default, the HopsTrajectory object stores the system wave function $$\vert \psi^{0} \rangle$$ and time $$t$$ when the calculation is not adaptive. When the calculation is adaptive (see [Adaptivity](/Readthedocs-Tutorial/Adaptivity/) for more details), the HopsTrajectory object also stores the outputs of list of indexing vectors of each member of $$A_t$$, the list of the integer indices of each state in $$S_t$$,  number of states in $$S_t$$, and number of auxiliary wave functions in $$A$$.
 
 The information is stored in a list dictionary which can be accessed through “hopsobj.storage” (where hopsobj is the name of the HopsTrajectory created). The information can be accessed by referencing the information’s key name.
 
