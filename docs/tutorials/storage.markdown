@@ -14,16 +14,16 @@ The HopsTrajectory object saves information about the trajectory after each time
 
 By default, the HopsTrajectory object stores the system wave function $$\vert \psi^{\vec{0}} \rangle$$ and time $$t$$ when the calculation is not adaptive. When the calculation is adaptive (see [Adaptivity](/Readthedocs-Tutorial/Adaptivity/) for more details), the HopsTrajectory object also stores the outputs of list of indexing vectors of each member of $$A_t$$, the list of the integer indices of each state in $$S_t$$,  number of states in $$S_t$$, and number of auxiliary wave functions in $$A$$.
 
-The information is stored in a list dictionary which can be accessed through “hopsobj.storage” (where hopsobj is the name of the HopsTrajectory created). The information can be accessed by referencing the information’s key name.
+The information is stored in a list dictionary which can be accessed through "hopsobj.storage" (where hopsobj is the name of the HopsTrajectory created). The information can be accessed by referencing the information’s key name.
 
 We already do this in the base tutorial:
 
 ```
 hops.propagate(t_max, t_step)
-psi_traj = hops.storage[‘psi_traj’]
+psi_traj = hops.storage['psi_traj']
 ```
 
-The HopsTrajectory object automatically saves the system wave function when hops.propagate is called. We then access the system wave function at all time points through the storage dictionary (hops.storage) via its key name (‘psi_traj’).
+The HopsTrajectory object automatically saves the system wave function when hops.propagate is called. We then access the system wave function at all time points through the storage dictionary (hops.storage) via its key name ('psi_traj').
 
 Here is a list of all the default saved data and their default key names.
 
@@ -61,13 +61,13 @@ hops = HOPS(
 The "data" dictionary will then contain the "psi_traj," "t_axis" and "phi_traj" for each time point after propagate() is called. We can access the full wave function as such:
 
 ```
-phi_traj = hops.storage[‘phi_traj’]
+phi_traj = hops.storage['phi_traj']
 ```
 
 Afterwards, we can optionally save this information into its own file using a function in numpy called np.save(), which takes in the name of the file and the information saved
 
 ```
-np.save(“full_wave_function_file”, phi_traj)
+np.save("full_wave_function_file", phi_traj)
 ```
 
 <h2>User-Defined Saving Functions</h2>
@@ -86,7 +86,7 @@ storage_param = {
 And access it with
 
 ```
-t = hops.storage[“time”]
+t = hops.storage["time"]
 ```
 
 When creating functions, we need to account for five parameters:
@@ -119,8 +119,6 @@ storage_param = {
 ```
 
 Here is a modified version of the example code that creates a saving function, specifies for HopsTrajectory to store that information at each timestep, and then accesses that information through a variable.
-
-Note that new saving functions should generally be stored in storage_functions.
 
 ```
 import os

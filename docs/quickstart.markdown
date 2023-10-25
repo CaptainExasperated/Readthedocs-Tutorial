@@ -194,7 +194,7 @@ hops.propagate(t_max, t_step)
 ```
 
 <h2>Analyze the outcome</h2>
-We will save each physical wave function (hops.storage[‘psi_traj’]) in the wave function list.
+We will save each physical wave function (hops.storage['psi_traj']) in the wave function list.
 
 ```
 psi_traj = hops.storage['psi_traj']

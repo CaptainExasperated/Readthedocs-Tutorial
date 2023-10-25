@@ -13,7 +13,7 @@ When simulating excited-state dynamics with mesoHOPS, it is always necessary to 
 
 ## Convergence Parameters
 
-Both the accuracy and the computational expense of a given HOPS calculation are governed by a set of parameters that control the calculation itself: these "convergence parameters" do not define the open quantum system that we wish to simulate. "Tightening" any of these convergence parameters results in a calculation that is both more computationally expensive and more accurate, while "loosening" them does the opposite. These convergence parameters are:
+Both the accuracy and the computational expense of a given HOPS calculation are governed by a set of parameters that control the calculation itself: these "convergence parameters" do not define the open quantum system that we wish to simulate. Tightening any of these convergence parameters results in a calculation that is both more computationally expensive and more accurate, while loosening them does the opposite. These convergence parameters are:
 
 -   kmax, the maximum hierarchy depth (larger is tighter)
     
@@ -33,7 +33,7 @@ In an adaptive HOPS calculation, there are additional convergence parameters:
 
   
 
-Ideally, we want to find a calculation that is "converged" - that is, tightening all of the convergence parameters does not change the dynamics - with the loosest possible convergence parameters. In order to do this, we need to complete "convergence scans."
+Ideally, we want to find a calculation that is converged - that is, tightening all of the convergence parameters does not change the dynamics - with the loosest possible convergence parameters. In order to do this, we need to complete "convergence scans."
 
 ## Convergence Scans
 
@@ -44,9 +44,7 @@ A convergence scan is an ensemble of HOPS trajectories (usually of 1,000 traject
 There are two major types of convergence scans: parameter-scan convergence scans begin with a set of "over-converged" parameters (determined based on other simulations or simply by selecting absurdly tight convergence parameters) and loosen a single convergence parameter at a time. While this is useful for finding the loosest set of convergence parameters for which calculations are still converged, it is also time-consuming and computationally expensive, because the bulk of the calculations will be overly expensive and each parameter must be individually surveyed.
 
   
-
-On the other hand, manifold convergence scans also begin with a set of over-converged parameters, but loosen all parameters at once. This significantly reduces the number of simulations run for a convergence scan, but because we loosen all the convergence parameters at the same time, it is unlikely that we will find the loosest set of convergence parameters for which calculations are still converged. Overall, however, manifold convergence scans are often much more convenient that parameter-scan convergence scans. It can also be convenient to do manifold convergence scans and then attempt to more tightly converge a single parameter that you suspect to be making calculations unnecessarily expensive.
-
+Conversely, manifold convergence scans start with a set of tightly converged parameters and relax all of them simultaneously. While this approach decreases the number of required simulations for a convergence scan, it may not pinpoint the optimal set of relaxed parameters that still yield converged calculations. Despite this, manifold convergence scans are generally more efficient than parameter-scan convergence scans. A practical approach might be to first conduct a manifold convergence scan, and then refine a specific parameter believed to be increasing calculation costs.
   
 
 In either case, we call the most tightly-converged ensemble the "reference ensemble." In order to measure how converged each "test ensemble" (the ensembles that are less tightly-converged) is, we need to develop a measurement of error.
@@ -71,7 +69,7 @@ The user may determine how to characterize error - and which levels of error are
 
   
 
-One alternative to population error is error in the expectation value of an observable. Instead of using the population vector $$\vec{P}(t)$$, it is simple to compare the expectation value of $$\hat{O}$$ over time via taking the ensemble average of the expectation value $$\langle \hat{O}\rangle_t = \langle\psi^{\vec{0}}_t\vert\hat{O}\vert\psi^{\vec{0}}_t\rangle$$. Comparing the expectation value of the observable between a reference and test ensemble is simple enough from there.
+One alternative to population error is error in the expectation value of an observable. Instead of using the population vector $$\vec{P}(t)$$, it is simple to compare the expectation value of $$\hat{O}$$ over time via taking the ensemble average of the expectation value $$\langle \hat{O}\rangle_t = \langle\psi^{\vec{0}}_t\vert\hat{O}\vert\psi^{\vec{0}}_t\rangle$$. This method offers a deeper understanding of the system's dynamics and simplifies the comparison between a reference and test ensemble, making it easier to discern any differences or similarities in the dynamics of the two ensembles.
 
 Finally, rather than using a numerical convergence threshold that depends on some calculated error measure, the user may simply determine convergence qualitatively by plotting either the populations of some or all states or some observable and deciding by eye whether or not the data appears converged.
 
@@ -84,7 +82,7 @@ It is also important to ensure that a HOPS calculation contains sufficient traje
 
   
 
-To test statistical convergence, we use a technique known as bootstrapping. We set up a number of N-trajectory ensembles, and then, for each ensemble, randomly sample (with replacement) M ensembles of N trajectories (M is usually a very large number, such as 10,000), before taking the 95% confidence interval of either the population vector or some observable expectation value across the M ensembles. This allows us to characterize the statistical significance of a given ensemble size.
+To test statistical convergence, we use a technique known as bootstrapping. We generate $$N$$ trajectories, and then, for each ensemble, randomly sample (with replacement) $$M$$ ensembles of $$N$$ trajectories ($$M$$ is usually a very large number, such as 10,000), before taking the 95% confidence interval of either the population vector or some observable expectation value across the $$M$$ ensembles. This allows us to characterize the statistical significance of a given ensemble size.
 
   
 
@@ -94,9 +92,10 @@ Bootstrapping, however, is time-consuming and involved. While it provides in-dep
 
 ## Notes
 
+
 The noise time step, $$\tau$$, must be strategically set before beginning a convergence scan: all tested integration time steps must be an even integer multiple of $$\tau$$ due to the way the Runge-Kutta integrator works.
 
-  
+Effective integration is generally important for convergence of the timestep as it allows for more stable and accurate calculations while reducing computational costs.  
 
 Setting the hierarchy depth too high can lead to issues with time step, as a large hierarchy depth introduces dynamics on very fast timescales into the equation of motion. As a general rule of thumb, ensure that your smallest tested integration time step is less than or equal to $$\frac{\hbar}{2\gamma_{max}k_{max}}$$, where $$\gamma_{max}$$ is the fastest exponential mode in your correlation function.
 
@@ -114,4 +113,4 @@ While the other parameters may be somewhat predictable by examining the properti
 
   
 
-Small changes in convergence parameters do not often yield major changes in calculation results. I recommend testing integration time step and update time on a log-2 scale (e.g., testing time steps 1.0 fs, 2.0 fs, 4.0 fs and 8.0 fs and update times 8 fs, 16 fs, 32 fs, and 64 fs), hierarchy depth in steps of 1, 2, 5, or 10 depending on the system (e.g., 1, 2, 3, and 4 or 10, 15, 20, 25), number of Matsubara modes on the modified log scale of 0, 1, 2, 5 (in most systems at room temperature), and the adaptive error limit parameters on a log-10 scale of something like 0.003, 0.001, 0.0003, 0.0001.
+Small changes in convergence parameters do not often yield major changes in calculation results. I recommend testing integration time step and update time on a log-2 scale (e.g., testing time steps 1.0 fs, 2.0 fs, 4.0 fs, and 8.0 fs and update times 8 fs, 16 fs, 32 fs, and 64 fs), hierarchy depth in steps of 1, 2, 5, or 10 depending on the system (e.g., 1, 2, 3, and 4 or 10, 15, 20, and 25), number of Matsubara modes on the modified log scale of 0, 1, 2, and 5 (in most systems at room temperature), and the adaptive error limit parameters on a log-10 scale of 0.003, 0.001, 0.0003, and 0.0001.
