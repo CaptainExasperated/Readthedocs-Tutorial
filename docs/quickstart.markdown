@@ -218,7 +218,7 @@ plt.show()
 
 If done correctly, the results should look like this.
 
-<img src="/images/unnamed.png"
+<img src="images/unnamed.png"
      alt="Graph"
      style="width:500px;height:300px;" />
 
