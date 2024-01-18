@@ -16,6 +16,8 @@ Led by Dr. Doran I. G. B(ennett) Raccah, the MesoScience Lab combines theoretica
 
 [Here is our website!](https://www.mesosciencelab.com/)
 
+[Here is our GitHub!](https://github.com/MesoscienceLab/mesohops)
+
 <h2> Installation </h2>
 
 There are certain prerequisites before installing MesoHOPS:

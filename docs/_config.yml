@@ -21,7 +21,7 @@
 title: MesoHOPS
 #email: your-email@example.com
 #baseurl: "/myblog" # the subpath of your site, e.g. /blog
-url: "acheng2.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "captainexasperated.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 theme: minima
