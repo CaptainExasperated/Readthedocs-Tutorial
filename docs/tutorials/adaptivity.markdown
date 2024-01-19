@@ -65,6 +65,6 @@ hops.make_adaptive(delta_a, delta_s, update_step)
 ```
 
 If done correctly, the results should look like this (for the shown values of delta_a ($$\delta_A$$)):
-<img src="/Readthedocs-Tutorial/images/Non-Adaptive_Dimer.png"
+<img src="/Readthedocs-Tutorial/images/Adaptive_Dimer.png"
      alt="Graph"
      style="width:500px;height:500px;" />
