@@ -40,5 +40,6 @@ Please see our Quickstart page to run your first calculation.
 
 <h2> Citations </h2>
 D. Suess, A. Eisfeld, and W. T. Strunz, [Hierarchy of Stochastic Pure States for Open Quantum System Dynamics](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.113.150403) (2014)
+
 L. Varvelo, J. K. Lynd, and D. I. G. Bennett, [Formally exact simulations of mesoscale exciton dynamics in molecular materials](https://doi.org/10.1039/D1SC01448J) (2021)
 

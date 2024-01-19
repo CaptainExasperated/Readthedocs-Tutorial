@@ -12,7 +12,7 @@ The HopsTrajectory object saves information about the trajectory after each time
 
 <h2>Saving and Accessing Information</h2>
 
-By default, the HopsTrajectory object stores the system wave function $$\vert \psi^{\vec{0}} \rangle$$ and time $$t$$ when the calculation is not adaptive. When the calculation is adaptive (see [Adaptivity](/Readthedocs-Tutorial/Adaptivity/) for more details), the HopsTrajectory object also stores the outputs of list of indexing vectors of each member of $$A_t$$, the list of the integer indices of each state in $$S_t$$,  number of states in $$S_t$$, and number of auxiliary wave functions in $$A$$.
+By default, the HopsTrajectory object stores the system wave function $$\vert \psi^{\vec{0}}_{t} \rangle$$ and time $$t$$ when the calculation is not adaptive. When the calculation is adaptive (see [Adaptivity](/Readthedocs-Tutorial/Adaptivity/) for more details), the HopsTrajectory object also stores the outputs of list of indexing vectors of each member of $$A_t$$, the list of the integer indices of each state in $$S_t$$,  number of states in $$S_t$$, and number of auxiliary wave functions in $$A$$.
 
 The information is stored in a list dictionary which can be accessed through "hopsobj.storage" (where hopsobj is the name of the HopsTrajectory created). The information can be accessed by referencing the information’s key name.
 
@@ -25,15 +25,20 @@ psi_traj = hops.storage['psi_traj']
 
 The HopsTrajectory object automatically saves the system wave function when hops.propagate is called. We then access the system wave function at all time points through the storage dictionary (hops.storage) via its key name ('psi_traj').
 
-Here is a list of all the default saved data and their default key names.
-
-[INSERT TABLE]
-
 <h2>Specifying Saved Information</h2>
 
-We can specify which information we choose to save by adding keys to a new dictionary (storage_param) when creating the HopsTrajectory object. This dictionary takes in the key name and the function used to store that information. There are eight built-in and preconstructed saving functions in mesoHOPS that can be found and modified in the file storage_functions.py.
+We can specify which information we choose to save by adding keys to a new dictionary (storage_param) when creating the HopsTrajectory object. This dictionary takes in the key name and the function used to store that information. There are eight built-in and preconstructed saving functions in mesoHOPS that can be found and modified in the file storage_functions.py. Note that the key name for each saving function is the saving function's name excluding the inital "save_".  
 
-[INSERT TABLE]
+| Saving Function    | Output |
+| -------- | ------- |
+| save_psi_traj  | system wave function $$\vert \psi^{\vec{0}}_{t} \rangle$$   |
+| save_phi_traj | full wave function $$\psi_{t}$$    |
+| save_phi_norm    | norm of full wave function $$\rVert \psi_{t} \rVert_{2}$$   |
+| save_t_axis  | time $$t$$   |
+| save_aux_list | list of indexing vectors of each member of $$A_t$$    |
+| save_list_nhier    | number of auxiliary wave functions in $$A_t$$   |
+| save_state_list  | list of the integer indices of each state in $$S_t$$   |
+| save_list_nstate | number of states in $$S_t$$    |
 
 For example, if we wanted our tutorial code to additionally save the full wave function as well as its default system wave function and time, we would first create a dictionary
 
