@@ -216,11 +216,11 @@ plt.plot(t_axis,pop2)
 plt.show()
 ```
 
-If done correctly, the results should look like this..
+If done correctly, the results should look like this:
 
-<img src="/Readthedocs-Tutorial/images/unnamed.png"
+<img src="/Readthedocs-Tutorial/images/Non-Adaptive_Dimer.png"
      alt="Graph"
-     style="width:500px;height:300px;" />
+     style="width:500px;height:500px;" />
 
 The full code to this example is shown below:
 

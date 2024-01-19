@@ -12,7 +12,7 @@ The flagship feature of mesoHOPS is the adaptive Hierarchy of Pure States (adHOP
 
 In adaptive calculations, the HOPS object evaluates two types of errors at every basis update step: one associated with omitting each system state and auxiliary wave function currently in the basis, and the other linked to neglecting elements outside this basis. The basis then neglects its elements, beginning with those causing minimal error, until a designated derivative error boundary is met.
 
- Given the full wave function $$\Psi_{t}$$, the derivative error associated with transitioning to an adaptive basis (where $$\tilde{\Psi}_{t}$$ represents the full wave function projected into the adaptive basis) must satisfy $$\left \Vert \frac{d\Psi_{t}}{dt} - \frac{d\tilde{\Psi}_{t}}{dt} \right \Vert_{2} \le \\delta$$, where $$\delta$$ is the user-defined error bound.  Our state basis and auxiliary wave function basis are calculated separately with individual error bounds delta_h ($$\delta_A$$) and delta_s ($$\delta_S$$) such that $$\delta^2 = \delta_A^2 + \delta_S^2$$.
+ Given the full wave function $$\Psi_{t}$$, the derivative error associated with transitioning to an adaptive basis (where $$\tilde{\Psi}_{t}$$ represents the full wave function projected into the adaptive basis) must satisfy $$\left \Vert \frac{d\Psi_{t}}{dt} - \frac{d\tilde{\Psi}_{t}}{dt} \right \Vert_{2} \le \\delta$$, where $$\delta$$ is the user-defined error bound.  Our state basis and auxiliary wave function basis are calculated separately with individual error bounds delta_a ($$\delta_A$$) and delta_s ($$\delta_S$$) such that $$\delta^2 = \delta_A^2 + \delta_S^2$$.
 
 While there is no specific value of $$\delta$$ for which the adaptive solution $$\tilde{\Psi}_{t}$$ is guaranteed to converge to the non-adaptive solution $$\Psi_{t}$$, we can run calculations with decreasing adaptivity parameter $$\delta$$ until convergence is observed. This convergence has been demonstrated phenomenologically to be monotonic for $$\delta_A$$, $$\delta_S$$, and $$\delta$$. As $$\delta \rightarrow 0 $$, the adaptive basis smoothly becomes the full basis defined by the system Hamiltonian, the correlation function modes, and the choice of hierarchy depth.
 
@@ -54,14 +54,17 @@ integration_param = {"INTEGRATOR": "RUNGE_KUTTA",
                          "STATIC_BASIS" : [state_list, aux_list]} 
 ```
 
-The make_adaptive(delta_h, delta_s, update_step) method must be called before the initialization of the trajectory and after creating the HOPs trajectory to implement a moving, adaptive basis guaranteed to satisfy derivative error bound delta. Adaptivity parameters delta_h ($$\delta_A$$) and delta_s ($$\delta_S$$) control the sensitivity of the adaptive basis construction and update_step is the parameter that determines how often the adaptive HOPS basis will be updated.
+The make_adaptive(delta_a, delta_s, update_step) method must be called before the initialization of the trajectory and after creating the HOPs trajectory to implement a moving, adaptive basis guaranteed to satisfy derivative error bound delta. Adaptivity parameters delta_a ($$\delta_A$$) and delta_s ($$\delta_S$$) control the sensitivity of the adaptive basis construction and update_step is the parameter that determines how often the adaptive HOPS basis will be updated.
 
 Example of the make_adaptive function:
 ```
-delta_s = 0.001
-delta_h = 0.001
+delta_s = 0
+delta_a = 0.001
 update_step = 10
-hops.make_adaptive(delta_h, delta_s, update_step)
+hops.make_adaptive(delta_a, delta_s, update_step)
 ```
 
-INSERT GRAPH
+If done correctly, the results should look like this (for the shown values of delta_a ($$\delta_A$$)):
+<img src="/Readthedocs-Tutorial/images/Non-Adaptive_Dimer.png"
+     alt="Graph"
+     style="width:500px;height:500px;" />
